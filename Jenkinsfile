@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy') { 
             steps { 
                 sh "docker pull asamaniya/docker-javamavenapp"
-                sh "docker rm demo-default" 
+                sh "docker -rm demo-default" 
             }
         }
         stage('RUN') { 
