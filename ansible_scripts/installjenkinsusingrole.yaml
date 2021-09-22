@@ -1,0 +1,14 @@
+
+--- ## Nginx installation using a role from Ansible galaxy
+- name: myjenkins
+  hosts: jenkins_master
+  become: true
+
+  vars:
+    jenkins_hostname: localhost
+    java_packages:
+      - openjdk-8-jdk
+
+  roles:
+    - role: geerlingguy.java
+    - role: geerlingguy.jenkins
