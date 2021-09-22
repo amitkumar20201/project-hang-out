@@ -1,0 +1,225 @@
+
+Console_Output - Jenkins job
+Started by user admin
+Obtained Jenkinsfile from git https://github.com/amitkumar20201/project-hang-out.git
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on slavenode in /var/lib/jenkins/workspace/project
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Fetching changes from the remote Git repository
+Checking out Revision f34f2b8d136cfea730c9029779abb90e22ba7030 (refs/remotes/origin/master)
+Commit message: "updated"
+ > /usr/bin/git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/project/.git # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/amitkumar20201/project-hang-out.git # timeout=10
+Fetching upstream changes from https://github.com/amitkumar20201/project-hang-out.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > /usr/bin/git fetch --tags --progress -- https://github.com/amitkumar20201/project-hang-out.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f f34f2b8d136cfea730c9029779abb90e22ba7030 # timeout=10
+ > /usr/bin/git rev-list --no-walk f34f2b8d136cfea730c9029779abb90e22ba7030 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Cloning our Git)
+[Pipeline] git
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Fetching changes from the remote Git repository
+Checking out Revision f34f2b8d136cfea730c9029779abb90e22ba7030 (refs/remotes/origin/master)
+Commit message: "updated"
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Java Build)
+[Pipeline] sh
++ mvn -B -DskipTests clean package
+ > /usr/bin/git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/project/.git # timeout=10
+ > /usr/bin/git config remote.origin.url https://github.com/amitkumar20201/project-hang-out.git # timeout=10
+Fetching upstream changes from https://github.com/amitkumar20201/project-hang-out.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.17.1'
+ > /usr/bin/git fetch --tags --progress -- https://github.com/amitkumar20201/project-hang-out.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f f34f2b8d136cfea730c9029779abb90e22ba7030 # timeout=10
+ > /usr/bin/git branch -a -v --no-abbrev # timeout=10
+ > /usr/bin/git branch -D master # timeout=10
+ > /usr/bin/git checkout -b master f34f2b8d136cfea730c9029779abb90e22ba7030 # timeout=10
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by com.google.inject.internal.cglib.core.$ReflectUtils$1 (file:/usr/share/maven/lib/guice.jar) to method java.lang.ClassLoader.defineClass(java.lang.String,byte[],int,int,java.security.ProtectionDomain)
+WARNING: Please consider reporting this to the maintainers of com.google.inject.internal.cglib.core.$ReflectUtils$1
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< com.mycompany.app:my-app >----------------------
+[INFO] Building my-app 1.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ my-app ---
+[INFO] Deleting /var/lib/jenkins/workspace/project/target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ my-app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/project/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ my-app ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/project/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ my-app ---
+[WARNING] Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/project/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ my-app ---
+[INFO] Changes detected - recompiling the module!
+[WARNING] File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/project/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ my-app ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ my-app ---
+[INFO] Building jar: /var/lib/jenkins/workspace/project/target/my-app-1.0-SNAPSHOT.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.951 s
+[INFO] Finished at: 2021-09-22T15:25:51Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Building our image)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker build -t asamaniya/docker-javamavenapp:12 .
+Sending build context to Docker daemon  182.8kB
+
+Step 1/4 : FROM amd64/openjdk:8
+ ---> 08121337b7a4
+Step 2/4 : EXPOSE 8080
+ ---> Running in aed9eec2b5be
+Removing intermediate container aed9eec2b5be
+ ---> edb98294ffff
+Step 3/4 : ADD target/my-app-1.0-SNAPSHOT.jar docker-javamavenapp.jar
+ ---> d11d3bf63983
+Step 4/4 : ENTRYPOINT ["java","-ja","/docker-javamavenapp.jar"]
+ ---> Running in 26cf102c3b44
+Removing intermediate container 26cf102c3b44
+ ---> 3e912de42486
+Successfully built 3e912de42486
+Successfully tagged asamaniya/docker-javamavenapp:12
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy our image)
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withDockerRegistry
+$ docker login -u asamaniya -p ******** https://index.docker.io/v1/
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /var/lib/jenkins/workspace/project@tmp/83b0fa3e-b797-4ba0-9a9e-f7792433040f/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker tag asamaniya/docker-javamavenapp:12 asamaniya/docker-javamavenapp:12
+[Pipeline] isUnix
+[Pipeline] sh
++ docker push asamaniya/docker-javamavenapp:12
+The push refers to repository [docker.io/asamaniya/docker-javamavenapp]
+68b1027d8186: Preparing
+d9b6ea8e7d5f: Preparing
+9cb5eb95298c: Preparing
+00ef5416d927: Preparing
+8555e663f65b: Preparing
+d00da3cd7763: Preparing
+4e61e63529c2: Preparing
+799760671c38: Preparing
+d00da3cd7763: Waiting
+4e61e63529c2: Waiting
+799760671c38: Waiting
+d9b6ea8e7d5f: Layer already exists
+8555e663f65b: Layer already exists
+9cb5eb95298c: Layer already exists
+00ef5416d927: Layer already exists
+d00da3cd7763: Layer already exists
+4e61e63529c2: Layer already exists
+799760671c38: Layer already exists
+68b1027d8186: Pushed
+12: digest: sha256:0578f78044030c4f3a11acfffcd808a52d0a4f309f6a9b35fef00dd0447cb3e3 size: 2003
+[Pipeline] }
+[Pipeline] // withDockerRegistry
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Cleaning up)
+[Pipeline] sh
++ docker rmi asamaniya/docker-javamavenapp:12
+Untagged: asamaniya/docker-javamavenapp:12
+Untagged: asamaniya/docker-javamavenapp@sha256:0578f78044030c4f3a11acfffcd808a52d0a4f309f6a9b35fef00dd0447cb3e3
+Deleted: sha256:3e912de424861794117247cc928f2e8387b612c5e72cdbc3dc8eac08274d805f
+Deleted: sha256:d11d3bf639830a97c599fd6b4e39c53fab4354c9ac66a4cdedbe9442801621b2
+Deleted: sha256:c74dbb8b7115a00753b5d4e180189910bf93259b5adfc19a5c76fcac6fde4aeb
+Deleted: sha256:edb98294ffff888ed84e0663b8b83252ebe0a9f1cc8214e054b53c9e661adfa6
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy)
+[Pipeline] sh
++ docker pull asamaniya/docker-javamavenapp
+Using default tag: latest
+latest: Pulling from asamaniya/docker-javamavenapp
+Digest: sha256:4bac7e96f429f5d616a412ca993b28d0824b70164654964cd97c8203fb75e710
+Status: Image is up to date for asamaniya/docker-javamavenapp:latest
+docker.io/asamaniya/docker-javamavenapp:latest
+[Pipeline] sh
++ docker rm demo-default
+demo-default
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (RUN)
+[Pipeline] sh
++ docker run -d --name demo-default -p 8090:8090 -p 8091:8091 asamaniya/docker-javamavenapp
+8b53642dc8b46ebc16a75d68cddf1d22a4b703279b7aeb17a9acd023134caeec
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
+

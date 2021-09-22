@@ -1,0 +1,78 @@
+
+SSHLauncher{host='13.68.203.123', port=22, credentialsId='26d4cc27-2f46-4f21-b3f8-fd4b0c5022d8', jvmOptions='', javaPath='', prefixStartSlaveCmd='', suffixStartSlaveCmd='', launchTimeoutSeconds=60, maxNumRetries=10, retryWaitTime=15, sshHostKeyVerificationStrategy=hudson.plugins.sshslaves.verifiers.KnownHostsFileKeyVerificationStrategy, tcpNoDelay=true, trackCredentials=true}
+[09/22/21 12:18:00] [SSH] Opening SSH connection to 13.68.203.123:22.
+Searching for 13.68.203.123 in /var/lib/jenkins/.ssh/known_hosts
+Searching for 13.68.203.123:22 in /var/lib/jenkins/.ssh/known_hosts
+[09/22/21 12:18:00] [SSH] SSH host key matches key in Known Hosts file. Connection will be allowed.
+[09/22/21 12:18:00] [SSH] Authentication successful.
+[09/22/21 12:18:01] [SSH] The remote user's environment is:
+BASH=/bin/bash
+BASHOPTS=cmdhist:complete_fullquote:extquote:force_fignore:hostcomplete:interactive_comments:progcomp:promptvars:sourcepath
+BASH_ALIASES=()
+BASH_ARGC=()
+BASH_ARGV=()
+BASH_CMDS=()
+BASH_EXECUTION_STRING=set
+BASH_LINENO=()
+BASH_SOURCE=()
+BASH_VERSINFO=([0]="4" [1]="4" [2]="20" [3]="1" [4]="release" [5]="x86_64-pc-linux-gnu")
+BASH_VERSION='4.4.20(1)-release'
+DIRSTACK=()
+EUID=111
+GROUPS=()
+HOME=/var/lib/jenkins
+HOSTNAME=jenkins-node1
+HOSTTYPE=x86_64
+IFS=$' \t\n'
+LANG=C.UTF-8
+LOGNAME=jenkins
+MACHTYPE=x86_64-pc-linux-gnu
+MAIL=/var/mail/jenkins
+OPTERR=1
+OPTIND=1
+OSTYPE=linux-gnu
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PIPESTATUS=([0]="0")
+PPID=4896
+PS4='+ '
+PWD=/var/lib/jenkins
+SHELL=/bin/bash
+SHELLOPTS=braceexpand:hashall:interactive-comments
+SHLVL=1
+SSH_CLIENT='13.68.205.164 34092 22'
+SSH_CONNECTION='13.68.205.164 34092 10.0.0.8 22'
+TERM=dumb
+UID=111
+USER=jenkins
+XDG_RUNTIME_DIR=/run/user/111
+XDG_SESSION_ID=24
+_=']'
+Checking Java version in the PATH
+openjdk version "11.0.11" 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2.18.04)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2.18.04, mixed mode, sharing)
+[09/22/21 12:18:01] [SSH] Checking java version of /var/lib/jenkins/jdk/bin/java
+Couldn't figure out the Java version of /var/lib/jenkins/jdk/bin/java
+bash: /var/lib/jenkins/jdk/bin/java: No such file or directory
+
+[09/22/21 12:18:01] [SSH] Checking java version of /usr/bin/java
+[09/22/21 12:18:01] [SSH] /usr/bin/java -version returned 11.0.11.
+[09/22/21 12:18:01] [SSH] Starting sftp client.
+[09/22/21 12:18:01] [SSH] Copying latest remoting.jar...
+[09/22/21 12:18:01] [SSH] Copied 1,507,326 bytes.
+Expanded the channel window size to 4MB
+[09/22/21 12:18:01] [SSH] Starting agent process: cd "/var/lib/jenkins" && /usr/bin/java  -jar remoting.jar -workDir /var/lib/jenkins -jar-cache /var/lib/jenkins/remoting/jarCache
+Sep 22, 2021 12:18:02 PM org.jenkinsci.remoting.engine.WorkDirManager initializeWorkDir
+INFO: Using /var/lib/jenkins/remoting as a remoting work directory
+Sep 22, 2021 12:18:02 PM org.jenkinsci.remoting.engine.WorkDirManager setupLogging
+INFO: Both error and output logs will be printed to /var/lib/jenkins/remoting
+<===[JENKINS REMOTING CAPACITY]===>channel started
+Remoting version: 4.10
+This is a Unix agent
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by jenkins.slaves.StandardOutputSwapper$ChannelSwapper to constructor java.io.FileDescriptor(int)
+WARNING: Please consider reporting this to the maintainers of jenkins.slaves.StandardOutputSwapper$ChannelSwapper
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+Evacuated stdout
+Agent successfully connected and online
