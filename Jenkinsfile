@@ -1,6 +1,6 @@
 pipeline { 
     environment { 
-        registry = "asamaniya/project-hangon-javamavenapp" 
+        registry = "asamaniya/docker-javamavenapp" 
         registryCredential = 'docker' 
         dockerImage = '' 
     }
@@ -39,13 +39,13 @@ pipeline {
         }
         stage('Deploy') { 
             steps { 
-                sh "docker pull asamaniya/project-hangon-javamavenapp"
+                sh "docker pull asamaniya/docker-javamavenapp"
                 sh "docker rm demo-default" 
             }
         }
         stage('RUN') { 
             steps { 
-                sh "docker run -d --name demo-default -p 8090:8090 -p 8091:8091 asamaniya/project-hangon-javamavenapp" 
+                sh "docker run -d --name demo-default -p 8090:8090 -p 8091:8091 asamaniya/docker-javamavenapp" 
             }
         }
     }
